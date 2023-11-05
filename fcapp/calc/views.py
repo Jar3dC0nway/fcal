@@ -9,8 +9,11 @@ import math
 def set_blank_zero(request):
     vals = {'number', 'rate', 'present_value', 'payments', 'future_value', 'operation'}
     for v in vals:
-        if request[v] == '':
-            request[v] = 0
+        try:
+            if request[v] == '':
+                request[v] = 0
+        except:
+            request[v] = ''
     return request
 
 
