@@ -1,0 +1,52 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<html>
+
+<body class="m-5">
+
+<div class="text-center">
+    <h3>[F]inancial [Cal]culator</h3>
+    <p>App by Jared Conway</p></br>
+</div>
+<form method="get" action="{% url 'index' %}" class="container">
+
+    <div class="form-group row my-3">
+        <div class="col"><label for="number">Number of Periods:</label></div>
+        <div class="col-6"><input id="number" class="form-control" type="number" step="any" placeholder="How many payment/interest years? Multiply by 12 for monthly payments" aria-label="" value="{{vals.0}}" name="number"></div>
+        <div class="col"><button class="btn btn-success" type="submit" name="operation" value="0">=</button></div>
+    </div>
+    <div class="form-group row my-3">
+        <div class="col"><label for="rate">Interest Rate:</label></div>
+        <div class="col-6"><input id="rate" class="form-control" type="number" step="any" placeholder="2% is 0.02. Divide by 12 if monthly interest is used (2% => 0.02/12 => 0.0017)" aria-label="" value="{{vals.1}}" name="rate"></div>
+        <div class="col"><button class="btn btn-success" type="submit" name="operation" value="1">=</button></div>
+    </div>
+    <div class="form-group row my-3">
+        <div class="col"><label for="present_value">Present Value:</label></div>
+        <div class="col-6"><input id="present_value" class="form-control" type="number" step="any" placeholder="How much is in right now?" aria-label="" value="{{vals.2}}" name="present_value"></div>
+        <div class="col"><button class="btn btn-success" type="submit" name="operation" value="2">=</button></div>
+    </div>
+    <div class="form-group row my-3">
+        <div class="col"><label for="payments">Payment Per Period:</label></div>
+        <div class="col-6"><input id="payments" class="form-control" type="number" step="any" placeholder="Use positives for taking money out, negatives for putting money in" aria-label="" value="{{vals.3}}" name="payments"></div>
+        <div class="col"><button class="btn btn-success" type="submit" name="operation" value="3">=</button></div>
+    </div>
+    <div class="form-group row my-3">
+        <div class="col"><label for="future_value">Future Value:</label></div>
+        <div class="col-6"><input id="future_value" class="form-control" type="number" step="any" placeholder="How much is it worth at the end?" aria-label="" value="{{vals.4}}" name="future_value"></div>
+        <div class="col"><button class="btn btn-success" type="submit" name="operation" value="4">=</button></div>
+    </div>
+</form>
+
+<div>
+    </br></br>
+    <p>How to use:</p>
+    <p>Put numbers into any of the text boxes above.</p>
+    <p>Leaving a box blank will default to 0.</p>
+    <p>Clicking the <span style="color:green">green = </span> will calculate the value for that field given the other values.</p>
+</div>
+
+</body>
+</html>
